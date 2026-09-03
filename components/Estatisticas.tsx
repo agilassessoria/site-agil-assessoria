@@ -1,61 +1,87 @@
-import { Users, FileCheck, Award, MessageCircle } from "lucide-react";
+import {
+  Users,
+  FileCheck,
+  Award,
+  MessageCircle,
+} from "lucide-react";
 
 export default function Estatisticas() {
   const dados = [
     {
       icon: <Users size={42} />,
-      numero: "+5.000",
-      titulo: "Clientes Atendidos",
+      numero: "01",
+      titulo: "Atendimento Individual",
+      texto: "Cada cliente recebe atenção de acordo com sua situação.",
     },
     {
       icon: <FileCheck size={42} />,
-      numero: "+2.000",
-      titulo: "Benefícios Concedidos",
+      numero: "02",
+      titulo: "Análise de Documentos",
+      texto: "Orientação para organizar e compreender a documentação necessária.",
     },
     {
       icon: <Award size={42} />,
-      numero: "10+",
-      titulo: "Anos de Experiência",
+      numero: "03",
+      titulo: "Orientação Especializada",
+      texto: "Atendimento voltado às necessidades previdenciárias e contábeis.",
     },
     {
       icon: <MessageCircle size={42} />,
-      numero: "100%",
-      titulo: "Atendimento Personalizado",
+      numero: "04",
+      titulo: "Acompanhamento",
+      texto: "Suporte e orientação durante as etapas do atendimento.",
     },
   ];
 
   return (
-    <section className="bg-[#0F4C5C] py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-[#0F4C5C] py-20 sm:py-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
 
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-white">
-            Nossos Números
+        {/* Título */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-yellow-400 font-bold uppercase tracking-wider text-sm">
+            Nosso compromisso
+          </span>
+
+          <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-white">
+            Atendimento pensado para você
           </h2>
 
-          <p className="text-gray-300 mt-4">
-            Resultados construídos com dedicação, confiança e compromisso.
+          <p className="text-gray-200 mt-4 text-base sm:text-lg leading-relaxed">
+            Na Ágil, cada atendimento é realizado com atenção,
+            responsabilidade e transparência.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8">
+        {/* Cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
           {dados.map((item) => (
             <div
               key={item.titulo}
-              className="bg-white rounded-2xl p-8 shadow-xl text-center hover:-translate-y-2 transition duration-300"
+              className="group bg-white rounded-2xl p-7 shadow-xl text-center hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
             >
-              <div className="flex justify-center text-[#0F4C5C] mb-5">
+
+              {/* Número */}
+              <div className="text-sm font-extrabold text-yellow-600 mb-4">
+                {item.numero}
+              </div>
+
+              {/* Ícone */}
+              <div className="flex justify-center text-[#0F4C5C] mb-5 group-hover:scale-110 transition-transform duration-300">
                 {item.icon}
               </div>
 
-              <h3 className="text-4xl font-bold text-[#0F4C5C]">
-                {item.numero}
+              {/* Título */}
+              <h3 className="text-xl font-bold text-[#0F4C5C]">
+                {item.titulo}
               </h3>
 
-              <p className="mt-3 text-gray-600 font-medium">
-                {item.titulo}
+              {/* Texto */}
+              <p className="mt-3 text-gray-600 leading-relaxed text-sm">
+                {item.texto}
               </p>
+
             </div>
           ))}
 

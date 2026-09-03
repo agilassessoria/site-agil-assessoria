@@ -1,62 +1,121 @@
-import { Star } from "lucide-react";
+import {
+  Star,
+  ShieldCheck,
+  MessageCircle,
+  FileCheck,
+} from "lucide-react";
 
 export default function Depoimentos() {
-  const depoimentos = [
+  const itens = [
     {
-      nome: "Maria S.",
+      icon: <ShieldCheck size={32} />,
+      titulo: "Atendimento com transparência",
       texto:
-        "Fui muito bem atendida pela Ágil Assessoria. Consegui minha aposentadoria com rapidez e segurança.",
+        "Você recebe informações claras sobre o atendimento e pode tirar suas dúvidas durante cada etapa.",
     },
     {
-      nome: "João P.",
+      icon: <MessageCircle size={32} />,
+      titulo: "Comunicação próxima",
       texto:
-        "Excelente atendimento. Tiraram todas as minhas dúvidas e acompanharam todo o processo.",
+        "Valorizamos um atendimento humanizado, com linguagem simples e atenção às necessidades de cada cliente.",
     },
     {
-      nome: "Ana C.",
+      icon: <FileCheck size={32} />,
+      titulo: "Orientação responsável",
       texto:
-        "Profissionais competentes e muito atenciosos. Recomendo para quem precisa de assessoria previdenciária.",
+        "Analisamos a situação apresentada e orientamos sobre documentos e caminhos possíveis para cada caso.",
     },
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="depoimentos"
+      className="py-20 sm:py-24 bg-gray-50"
+    >
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
 
-        <div className="text-center mb-14">
-          <span className="text-yellow-600 font-bold uppercase tracking-widest">
-            Depoimentos
+        {/* Cabeçalho */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+
+          <span className="inline-block bg-yellow-100 text-yellow-700 font-bold px-5 py-2 rounded-full text-sm">
+            CONFIANÇA E COMPROMISSO
           </span>
 
-          <h2 className="text-4xl font-bold text-[#0F4C5C] mt-3">
-            O que nossos clientes dizem
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F4C5C] mt-5">
+            Atendimento que valoriza você
           </h2>
+
+          <p className="mt-5 text-gray-600 text-base sm:text-lg leading-8">
+            Na Ágil Assessoria, buscamos construir uma relação baseada em
+            confiança, respeito, transparência e responsabilidade.
+          </p>
+
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Avaliação visual */}
+        <div className="flex justify-center items-center gap-2 mb-10">
 
-          {depoimentos.map((item) => (
+          <div className="flex gap-1 text-yellow-500">
+            <Star fill="currentColor" size={22} />
+            <Star fill="currentColor" size={22} />
+            <Star fill="currentColor" size={22} />
+            <Star fill="currentColor" size={22} />
+            <Star fill="currentColor" size={22} />
+          </div>
+
+          <span className="text-gray-600 font-medium">
+            Atendimento humanizado
+          </span>
+
+        </div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+
+          {itens.map((item) => (
             <div
-              key={item.nome}
-              className="bg-gray-50 rounded-3xl shadow-lg p-8"
+              key={item.titulo}
+              className="bg-white rounded-3xl p-7 sm:p-8 shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
             >
-              <div className="flex gap-1 text-yellow-500 mb-5">
-                <Star fill="currentColor" size={20} />
-                <Star fill="currentColor" size={20} />
-                <Star fill="currentColor" size={20} />
-                <Star fill="currentColor" size={20} />
-                <Star fill="currentColor" size={20} />
+
+              {/* Ícone */}
+              <div className="w-14 h-14 rounded-2xl bg-[#0F4C5C] text-yellow-300 flex items-center justify-center mb-6">
+                {item.icon}
               </div>
 
-              <p className="text-gray-600 leading-7">
-                "{item.texto}"
+              <h3 className="text-xl font-bold text-[#0F4C5C]">
+                {item.titulo}
+              </h3>
+
+              <p className="mt-4 text-gray-600 leading-7">
+                {item.texto}
               </p>
 
-              <h3 className="mt-6 font-bold text-[#0F4C5C]">
-                {item.nome}
-              </h3>
             </div>
           ))}
+
+        </div>
+
+        {/* CTA */}
+        <div className="mt-12 bg-[#0F4C5C] rounded-3xl p-8 sm:p-10 text-center">
+
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+            Precisa de orientação?
+          </h3>
+
+          <p className="mt-3 text-gray-200 max-w-2xl mx-auto">
+            Explique sua situação para nossa equipe e veja como podemos
+            ajudar.
+          </p>
+
+          <a
+            href="https://wa.me/5566992083796"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 mt-6 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold shadow-lg transition-all duration-300 hover:scale-105"
+          >
+            💬 Falar pelo WhatsApp
+          </a>
 
         </div>
 
