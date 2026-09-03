@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { extrairTextoPDF } from "@/lib/ia/extrairTextoPDF";
-import { openai } from "@/lib/ia/openai";
+import { getOpenAI } from "@/lib/ia/openai";
 
 export async function POST(request: NextRequest) {
   try {
@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const respostaIA = await openai.responses.create({
+    const respostaIA = await getOpenAI().responses.create({
       model: "gpt-5",
 
       instructions: `
